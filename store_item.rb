@@ -15,4 +15,4 @@ apples = {
 }
 
 # p "#{apples}"
-p 
+p "#{apples[:color]} #{apples[:price]} #{apples[:quantity]}" 
