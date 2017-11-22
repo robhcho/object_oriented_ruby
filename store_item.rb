@@ -40,4 +40,51 @@ p apples.info
 apples.price = 10
 p apples.info
 
+class Item
+  attr_reader :product, :color, :price, :quantity
+  attr_writer :price
 
+  def initialize(input_hash)
+    @product = input_hash[:product_name]
+    @color = input_hash[:color]
+    @price = input_hash[:price]
+    @quantity = input_hash[:quantity]
+  end
+
+
+  def info
+    "These #{color} #{product} cost $#{price} and come in packs of #{quantity}"
+  end
+end
+
+
+apples = Item.new({product_name: "apples", color: "red", price: 5.0, quantity: 12})
+p apples.info
+apples.price = 10
+p apples.info
+
+
+# class Item
+#   attr_reader :product, :color, :price, :quantity
+#   attr_writer :price
+
+#   def initialize(options nil)
+#     options || = {}
+    
+#     # @product = input_hash[:product_name]
+#     # @color = input_hash[:color]
+#     # @price = input_hash[:price]
+#     # @quantity = input_hash[:quantity]
+#   end
+
+
+#   def info
+#     "These #{color} #{product} cost $#{price} and come in packs of #{quantity}"
+#   end
+# end
+
+
+# apples = Item.new({product_name: "apples", color: "red", price: 5.0, quantity: 12})
+# p apples.info
+# apples.price = 10
+# p apples.info
