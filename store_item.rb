@@ -18,10 +18,15 @@
 # p "#{apples[:color]} #{apples[:price]} #{apples[:quantity]}" 
 
 class Item
-  def initialize(input_color, input_price, input_quantity)
+  def initialize(input_product, input_color, input_price, input_quantity)
+    @product = input_product
     @color = input_color
     @price = input_price
     @quantity = input_quantity
+  end
+
+  def product
+    @product
   end
 
   def color
@@ -37,12 +42,12 @@ class Item
   end
 
   def info
-    "These #{color} apples cost $#{price} and come in packs of #{quantity}"
+    "These #{color} #{product} cost $#{price} and come in packs of #{quantity}"
   end
 end
 
 
-apples = Item.new("red", 5.0, 12)
+apples = Item.new("apples", "red", 5.0, 12)
 p apples.info
 
 
