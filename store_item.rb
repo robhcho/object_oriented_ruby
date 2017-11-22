@@ -6,13 +6,25 @@
 # C.3 - Be sure to use symbols for the keys. Try creating hashes using both types of hash symbol syntaxes. (Ruby syntax {:a => 123} vs. “JavaScript” syntax {a: 123}).
 # Bonus: Read more about Ruby’s hash symbol syntax:
 
-apples = {
+# apples = {
 
-  :color => "red",
-  :price => 5.00,
-  :quantity => 12
+#   :color => "red",
+#   :price => 5.00,
+#   :quantity => 12
 
-}
+# }
 
-# p "#{apples}"
-p "#{apples[:color]} #{apples[:price]} #{apples[:quantity]}" 
+# # p "#{apples}"
+# p "#{apples[:color]} #{apples[:price]} #{apples[:quantity]}" 
+
+class Item
+  def initialize(input_color, input_price, input_quantity)
+    @color = input_color
+    @price = input_price
+    @quantity = input_quantity
+    p "running"
+  end
+end
+
+
+apples = Item.new("red", 5.0, 12)
