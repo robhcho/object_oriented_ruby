@@ -22,9 +22,27 @@ class Item
     @color = input_color
     @price = input_price
     @quantity = input_quantity
-    p "running"
+  end
+
+  def color
+    @color
+  end
+
+  def price
+    @price
+  end
+
+  def quantity
+    @quantity
+  end
+
+  def info
+    "These #{color} apples cost $#{price} and come in packs of #{quantity}"
   end
 end
 
 
 apples = Item.new("red", 5.0, 12)
+p apples.info
+
+
