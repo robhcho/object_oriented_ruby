@@ -18,6 +18,9 @@
 # p "#{apples[:color]} #{apples[:price]} #{apples[:quantity]}" 
 
 class Item
+  attr_reader :product, :color, :price, :quantity
+  attr_writer :price
+
   def initialize(input_product, input_color, input_price, input_quantity)
     @product = input_product
     @color = input_color
@@ -25,21 +28,6 @@ class Item
     @quantity = input_quantity
   end
 
-  def product
-    @product
-  end
-
-  def color
-    @color
-  end
-
-  def price
-    @price
-  end
-
-  def quantity
-    @quantity
-  end
 
   def info
     "These #{color} #{product} cost $#{price} and come in packs of #{quantity}"
@@ -48,6 +36,8 @@ end
 
 
 apples = Item.new("apples", "red", 5.0, 12)
+p apples.info
+apples.price = 10
 p apples.info
 
 
