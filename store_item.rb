@@ -17,48 +17,48 @@
 # # p "#{apples}"
 # p "#{apples[:color]} #{apples[:price]} #{apples[:quantity]}" 
 
-class Item
-  attr_reader :product, :color, :price, :quantity
-  attr_writer :price
+# class Item
+#   attr_reader :product, :color, :price, :quantity
+#   attr_writer :price
 
-  def initialize(input_product, input_color, input_price, input_quantity)
-    @product = input_product
-    @color = input_color
-    @price = input_price
-    @quantity = input_quantity
-  end
+#   def initialize(input_product, input_color, input_price, input_quantity)
+#     @product = input_product
+#     @color = input_color
+#     @price = input_price
+#     @quantity = input_quantity
+#   end
 
 
-  def info
-    "These #{color} #{product} cost $#{price} and come in packs of #{quantity}"
+#   def info
+#     "These #{color} #{product} cost $#{price} and come in packs of #{quantity}"
+#   end
+# end
+
+
+# apples = Item.new("apples", "red", 5.0, 12)
+# p apples.info
+# apples.price = 10
+# p apples.info
+module StoreFront
+  class Item
+    attr_reader :product, :color, :price, :quantity
+    attr_writer :price
+
+    def initialize(input_hash)
+      @product = input_hash[:product_name]
+      @color = input_hash[:color]
+      @price = input_hash[:price]
+      @quantity = input_hash[:quantity]
+    end
+
+
+    def info
+      "These #{color} #{product} cost $#{price} and come in packs of #{quantity}"
+    end
   end
 end
 
-
-apples = Item.new("apples", "red", 5.0, 12)
-p apples.info
-apples.price = 10
-p apples.info
-
-class Item
-  attr_reader :product, :color, :price, :quantity
-  attr_writer :price
-
-  def initialize(input_hash)
-    @product = input_hash[:product_name]
-    @color = input_hash[:color]
-    @price = input_hash[:price]
-    @quantity = input_hash[:quantity]
-  end
-
-
-  def info
-    "These #{color} #{product} cost $#{price} and come in packs of #{quantity}"
-  end
-end
-
-
-apples = Item.new({product_name: "apples", color: "red", price: 5.0, quantity: 12})
+apples = StoreFront::Item.new({product_name: "apples", color: "red", price: 5.0, quantity: 12})
 p apples.info
 apples.price = 10
 p apples.info
